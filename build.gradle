@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    // application 플러그인 추가
+    id 'application'
+}
+
+group 'com.madcoder'
+version '1.0-SNAPSHOT'
+
+// Java 소스의 버전을 명시
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+// 실행할 어플리케이션을 명시
+application {
+    mainClass = 'com.madcoder.practice.PracticeApplication'
+}
+
+dependencies {
+    // spring-webmvc 의존체 추가 (내부적으로 core, aop, beans, context 등을 의존하기 때문에 함께 설치됩니다.)
+    implementation 'org.springframework:spring-webmvc:5.2.3.RELEASE'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
